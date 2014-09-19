@@ -1,4 +1,5 @@
 Summary:	The "Linux Thermal Daemon" program from 01.org
+Summary(pl.UTF-8):	Linux Thermal Daemon z 01.org
 Name:		thermal-daemon
 Version:	1.3
 Release:	1
@@ -8,18 +9,27 @@ Group:		Base
 Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/v%{version}.tar.gz
 # Source0-md5:	d80f6dd4e8c080cdeaa943afbfa87523
 URL:		https://github.com/01org/thermal_daemon
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	dbus-glib-devel
-BuildRequires:	glib2-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1:1.11
+BuildRequires:	dbus-devel >= 1.1
+BuildRequires:	dbus-glib-devel >= 0.94
+BuildRequires:	glib2-devel >= 1:2.22
+BuildRequires:	libxml2-devel >= 2.4
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.671
 Requires(post,preun,postun):	systemd-units >= 38
+Requires:	dbus >= 1.1
+Requires:	dbus-glib >= 0.94
+Requires:	glib2 >= 1:2.22
+Requires:	libxml2 >= 2.4
 Requires:	systemd-units >= 38
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Thermal Daemon monitors and controls platform temperature.
+
+%description -l pl.UTF-8
+Thermal Daemon monitoruje i kontroluje temperaturę komputera.
 
 %prep
 %setup -q -n thermal_daemon-%{version}
