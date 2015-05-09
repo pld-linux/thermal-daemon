@@ -1,13 +1,12 @@
 Summary:	The "Linux Thermal Daemon" program from 01.org
 Summary(pl.UTF-8):	Linux Thermal Daemon z 01.org
 Name:		thermal-daemon
-Version:	1.3
+Version:	1.4
 Release:	1
 License:	GPL v2+
 Group:		Base
-# TODO: use "%{name}-%{version}.tar.gz" as filename when updating version
-Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/v%{version}.tar.gz
-# Source0-md5:	d80f6dd4e8c080cdeaa943afbfa87523
+Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	695a7bbc8e3fada3797476718f72bb7c
 URL:		https://github.com/01org/thermal_daemon
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -47,6 +46,9 @@ install -d build-aux
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# upstart is dead
+%{__rm} $RPM_BUILD_ROOT/etc/init/thermald.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
