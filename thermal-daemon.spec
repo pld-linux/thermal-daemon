@@ -1,12 +1,12 @@
 Summary:	The "Linux Thermal Daemon" program from 01.org
 Summary(pl.UTF-8):	Linux Thermal Daemon z 01.org
 Name:		thermal-daemon
-Version:	1.4
+Version:	1.9.1
 Release:	1
 License:	GPL v2+
 Group:		Base
 Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	695a7bbc8e3fada3797476718f72bb7c
+# Source0-md5:	3edc8cd9d227dda858c95385627156e3
 URL:		https://github.com/01org/thermal_daemon
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -47,9 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# upstart is dead
-%{__rm} $RPM_BUILD_ROOT/etc/init/thermald.conf
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.txt
 %dir %{_sysconfdir}/thermald
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/thermald/thermal-conf.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/thermald/thermal-cpu-cdev-order.xml
 %config(noreplace) /etc/dbus-1/system.d/org.freedesktop.thermald.conf
 %attr(755,root,root) %{_sbindir}/thermald
