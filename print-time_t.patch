@@ -1,0 +1,14 @@
+--- thermal_daemon-2.2/src/main.cpp.orig	2020-06-06 01:02:24.000000000 +0200
++++ thermal_daemon-2.2/src/main.cpp	2020-06-29 19:26:49.136677166 +0200
+@@ -121,9 +121,9 @@
+ 	seconds = time(NULL);
+ 
+ 	if (thd_daemonize)
+-		syslog(syslog_priority, "[%ld]%s%s", seconds, prefix, message);
++		syslog(syslog_priority, "[%lld]%s%s", (long long) seconds, prefix, message);
+ 	else
+-		g_print("[%ld]%s%s", seconds, prefix, message);
++		g_print("[%lld]%s%s", (long long) seconds, prefix, message);
+ 
+ }
+ 

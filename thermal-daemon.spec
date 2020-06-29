@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		Base
 Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	4e86f9c2fedcdfc10bb2654edcc96414
+Patch0:		print-time_t.patch
 URL:		https://github.com/01org/thermal_daemon
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -32,6 +33,7 @@ Thermal Daemon monitoruje i kontroluje temperaturę komputera.
 
 %prep
 %setup -q -n thermal_daemon-%{version}
+%patch0 -p1
 
 %build
 install -d build-aux
