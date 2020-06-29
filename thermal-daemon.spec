@@ -47,6 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+cp -p data/thermal-conf.xml $RPM_BUILD_ROOT/%{_sysconfdir}/thermald
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -63,6 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.txt
 %dir %{_sysconfdir}/thermald
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/thermald/thermal-conf.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/thermald/thermal-cpu-cdev-order.xml
 %config(noreplace) /etc/dbus-1/system.d/org.freedesktop.thermald.conf
 %attr(755,root,root) %{_sbindir}/thermald
