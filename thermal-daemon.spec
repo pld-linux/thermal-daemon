@@ -1,12 +1,12 @@
 Summary:	The "Linux Thermal Daemon" program from 01.org
 Summary(pl.UTF-8):	Linux Thermal Daemon z 01.org
 Name:		thermal-daemon
-Version:	1.9.1
+Version:	2.2
 Release:	1
 License:	GPL v2+
 Group:		Base
 Source0:	https://github.com/01org/thermal_daemon/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	3edc8cd9d227dda858c95385627156e3
+# Source0-md5:	4e86f9c2fedcdfc10bb2654edcc96414
 URL:		https://github.com/01org/thermal_daemon
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
