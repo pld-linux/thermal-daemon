@@ -33,7 +33,7 @@ Thermal Daemon monitoruje i kontroluje temperaturę komputera.
 
 %prep
 %setup -q -n thermal_daemon-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 install -d build-aux
