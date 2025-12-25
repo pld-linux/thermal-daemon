@@ -44,6 +44,8 @@ gtkdocize --copy --flavour no-tmpl
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+export CFLAGS="%{rpmcflags} -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64"
+export CXXFLAGS="%{rpmcxxflags} -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64"
 %configure
 %{__make}
 
